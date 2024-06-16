@@ -1,0 +1,37 @@
+\documentclass{article}
+\author{Yoni Subin}
+\usepackage{array}
+\usepackage{geometry}
+\geometry{a4paper,left=10mm,right=10mm,top=5mm,bottom=5mm}
+\begin{document}
+    \title{Physics Simulations in Python}
+    \maketitle
+    \section*{Harmonic Piston with Gas}
+    This simulation shows that temperature is really just a form of kinetic energy.
+    The gas particals float around at random within a piston and cary some small
+    amount of kinetic energy. Each time they collide with the piston,
+    there is an elastic collision and the partical passes a small bit of momentum
+    to the piston according to the equation 
+    $m_1v_1+m_2v_2=m_{1_f}v_{1_f}+m_{2_f}v_{2_f}$. At the end of the simulation,
+    we show a graph with the location of the piston as well as the velocity 
+    as a function of time, as well as a graph of the kinetic and potential 
+    energies and show that their sum is constant due to conservation of enerrgy.
+    Note how the graph of the velocity of the piston is not continuous due to 
+    the collisions.
+    \section*{Diatomic Chain}
+    This simulation shows a 1 dimentional chain of alternating types of atoms and
+    their interations with each other. When even one atom is out of equilibrium 
+    this causes an interation in all of the chain passing along its disturbance.
+    All the atoms are approximatly a harmonic relation so we can discribe them as 
+    masses in a chain connected by springs. In this simulation, we have assumed the 
+    "spring" (which is really just electrical forces) are the same between every atom. 
+    Here we see that the forces on mass $n$ are given by the equation 
+    $F_n=m_n\ddot{x_n}=\kappa\left(x_{n-1}-\delta x_n\right)-\kappa\left(\delta x_n - x_{n+1}\right)$
+    where $\kappa$ is the spring constant and $\delta x_n$ is how far mass $n$ is
+    from its equilibrium point.
+    \section*{Si Crystal}
+    The layout of a silicon crystal can be difficult to imagine. It is similar to an FCC
+    lattice, but not quite. I have plotted all of the points in the unit 
+    lattace and then shown how they layer one on top of the next to form the crystal.
+
+\end{document}
