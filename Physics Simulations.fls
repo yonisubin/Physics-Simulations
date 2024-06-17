@@ -1,6 +1,6 @@
-PWD c:\Users\yonis\Documents\Python Scripts\Physics Simulations
+PWD c:\Users\yonis\Documents\Python Scripts\Physics Simulations\Physics-Simulations-1
 INPUT C:\Users\yonis\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\Users\yonis\Documents\Python Scripts\Physics Simulations\Physics Simulations.tex
+INPUT c:\Users\yonis\Documents\Python Scripts\Physics Simulations\Physics-Simulations-1\Physics Simulations.tex
 OUTPUT Physics Simulations.log
 INPUT C:\Program Files (x86)\MiKTeX\tex\latex\base\article.cls
 INPUT C:\Program Files (x86)\MiKTeX\tex\latex\base\article.cls
@@ -108,6 +108,8 @@ INPUT C:\Users\yonis\AppData\Local\MiKTeX\pdftex\config\pdftex.map
 INPUT Physics Simulations.aux
 INPUT C:\Program Files (x86)\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
 INPUT C:\Program Files (x86)\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
+INPUT C:\Program Files (x86)\MiKTeX\fonts\type1\public\amsfonts\cm\cmex10.pfb
+INPUT C:\Program Files (x86)\MiKTeX\fonts\type1\public\amsfonts\cm\cmex10.pfb
 INPUT C:\Program Files (x86)\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb
 INPUT C:\Program Files (x86)\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb
 INPUT C:\Program Files (x86)\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi5.pfb

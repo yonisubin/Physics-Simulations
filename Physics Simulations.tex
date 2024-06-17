@@ -33,5 +33,16 @@
     The layout of a silicon crystal can be difficult to imagine. It is similar to an FCC
     lattice, but not quite. I have plotted all of the points in the unit 
     lattace and then shown how they layer one on top of the next to form the crystal.
-
+    \section*{Double Pendulum}
+    A double pendulum is a similar system to a regular harmonic occilator, but with an additional
+    pendulum connected to the bottom of the first. This increases the complexity and makes it near
+    impossible to solve through Newtonian force diagrams. Instead, I analyzied it using the Lagrangian.
+    Applying the Euler-Lagrange equation of 
+    $\frac{d}{dt}\left(\frac{d\mathcal{L}}{d\dot{\theta}_i}\right)-\frac{d\mathcal{L}}{d\theta_i}$
+    I calculated an angular acceleration of:
+    $$
+    \alpha_1 =\frac{-g(2m_1 + m_2) \sin(\theta_1) - m_2 g \sin(\theta_1 - 2\theta_2) - 2 \sin(\theta_1 - \theta_2) m_2 (\dot{\theta}_2^2 l_2 + \dot{\theta}_1^2 l_1 \cos(\theta_1 - \theta_2))}{l_1 (2m_1 + m_2 - m_2 \cos(2\theta_1 - 2\theta_2))}
+    $$$$
+    \alpha_2 = \frac{2 \sin(\theta_1 - \theta_2) (\dot{\theta}_1^2 l_1 (m_1 + m_2) + g (m_1 + m_2) \cos(\theta_1) + \dot{\theta}_2^2 l_2 m_2 \cos(\theta_1 - \theta_2))}{l_2 (2m_1 + m_2 - m_2 \cos(2\theta_1 - 2\theta_2))}
+    $$
 \end{document}

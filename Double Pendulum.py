@@ -1,78 +1,80 @@
-#! python3
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.animation import FuncAnimation
 
-# import tools (that makes it look like you have MATLAB)
-import numpy as np # the power of vectors and matrices
-import matplotlib.pyplot as plt # the power of graphs
-from matplotlib.patches import Circle, Rectangle
-import random # random number generators
-import sys # for the progress bar
+# Parameters
+g = 9.81  # acceleration due to gravity, in m/s^2
+l1 = 1.0  # length of the first pendulum rod (in meters)
+l2 = 1.0  # length of the second pendulum rod (in meters)
+m1 = 1.0  # mass of the first pendulum bob (in kg)
+m2 = 1.0  # mass of the second pendulum bob (in kg)
 
-# define a progress bar
-def update_progress(progress):
-    barLength = 25 # Modify this to change the length of the progress bar
-    status = ""
-    if isinstance(progress, int):
-        progress = float(progress)
-    if not isinstance(progress, float):
-        progress = 0
-        status = "error: progress var must be float\r\n"
-    if progress < 0:
-        progress = 0
-        status = "Halt...\r\n"
-    if progress >= 1:
-        progress = 1
-        status = "Done...\r\n"
-    block = int(round(barLength*progress))
-    text = "\r{:2.0f}% |{}| {}".format(progress*100,'\u2588'*block + " "*(barLength-block),status)
-    sys.stdout.write(text)
-    sys.stdout.flush()
+# Initial conditions
+a1 = np.pi / 2  # initial angle of the first pendulum (in radians)
+a2 = np.pi / 2  # initial angle of the second pendulum (in radians)
+a1_v = 0.0  # initial angular velocity of the first pendulum (in rad/s)
+a2_v = 0.0  # initial angular velocity of the second pendulum (in rad/s)
 
+# Time parameters
+dt = 0.01  # time step (in seconds)
+t_max = 20  # total time (in seconds)
+t = np.arange(0, t_max, dt)
 
-# Build a world
-fig=plt.figure('A double pendulum experiment')
-ax=fig.add_subplot(1,1,1)
+# Arrays to store the positions of the pendulum bobs
+x1 = np.zeros_like(t)
+y1 = np.zeros_like(t)
+x2 = np.zeros_like(t)
+y2 = np.zeros_like(t)
 
-ax.cla()
-ax.set_aspect('equal')
-L = 1.0 #size of box along x
-V = L*1 # two-dimensional volume
-ax.plot(np.array([0,L,L,0,0]), np.array([0,0,1,1,0]), 'k')
+def update_pendulum(a1, a2, a1_v, a2_v, dt):
+    num1 = -g * (2 * m1 + m2) * np.sin(a1)
+    num2 = -m2 * g * np.sin(a1 - 2 * a2)
+    num3 = -2 * np.sin(a1 - a2) * m2
+    num4 = a2_v**2 * l2 + a1_v**2 * l1 * np.cos(a1 - a2)
+    den = l1 * (2 * m1 + m2 - m2 * np.cos(2 * a1 - 2 * a2))
+    a1_a = (num1 + num2 + num3 * num4) / den
 
-m1_dic={
-    "loc":(0.55,0.75),
-    "mass":1,
-    "color":"blue"
-}
-m2_dic={
-    "loc":(0.45,0.5),
-    "mass":2,
-    "color":"red"
-}
-def draw():
-    m1=Circle(m1_dic["loc"],0.01*m1_dic["mass"],color=m1_dic["color"])
-    ax.add_patch(m1)
-    m2=Circle(m2_dic["loc"],0.01*m2_dic["mass"],color=m2_dic["color"])
-    ax.add_patch(m2)
-    ax.plot(np.array([0.5,m1_dic["loc"][0]]),np.array([1,m1_dic["loc"][1]]),color="green")
-    ax.plot(np.array([m1_dic["loc"][0],m2_dic["loc"][0]]),np.array([m1_dic["loc"][1],m2_dic["loc"][1]]),color="green")
-def move():
-    # m_{2}l_{2}\ddot{\theta}_2+m_{2}l_{1}\ddot{\theta}_1\cos\left(\theta_{1}-\theta_{2}\right)
-    # -m_{2}l_{1}\dot{\theta}_{1}^{2}\sin\left(\theta_{1}-\theta_{2}\right)+m_{2}g\sin\left(\theta_{2}\right)=0
-    
-    # \left(m_{1}+m_{2}\right)l_{1}^{2}\ddot{\theta}_{1}+m_{2}l_{2}^{2}\ddot{\theta}_{2}\cos\left(\theta_{1}-\theta_{2}\right)+
-    # +m_{2}l_{1}l_{2}\dot{\theta}_{2}^{2}\sin\left(\theta_{1}-\theta_{2}\right)+
-    # +\left(m_{1}+m_{2}\right)l_{1}g\sin\left(\theta_{1}\right)=0
+    num1 = 2 * np.sin(a1 - a2)
+    num2 = a1_v**2 * l1 * (m1 + m2)
+    num3 = g * (m1 + m2) * np.cos(a1)
+    num4 = a2_v**2 * l2 * m2 * np.cos(a1 - a2)
+    den = l2 * (2 * m1 + m2 - m2 * np.cos(2 * a1 - 2 * a2))
+    a2_a = (num1 * (num2 + num3 + num4)) / den
 
-    # Use SciPy to solve it
-    t=np.linspace(0,100)
-    
+    a1_v += a1_a * dt
+    a2_v += a2_a * dt
+    a1 += a1_v * dt
+    a2 += a2_v * dt
 
-    pass
-t=0
-dt=1
-end_time=10
-while t<end_time:
-    t+=dt
-    move()
-    draw()
+    return a1, a2, a1_v, a2_v
+
+# Update positions of the pendulum bobs
+for i in range(len(t)):
+    x1[i] = l1 * np.sin(a1)
+    y1[i] = -l1 * np.cos(a1)
+    x2[i] = x1[i] + l2 * np.sin(a2)
+    y2[i] = y1[i] - l2 * np.cos(a2)
+    a1, a2, a1_v, a2_v = update_pendulum(a1, a2, a1_v, a2_v, dt)
+
+# Set up the figure and axis
+fig, ax = plt.subplots()
+ax.set_xlim(-2, 2)
+ax.set_ylim(-2, 2)
+line, = ax.plot([], [], 'o-', lw=2)
+
+# Initialization function
+def init():
+    line.set_data([], [])
+    return line,
+
+# Animation function
+def animate(i):
+    thisx = [0, x1[i], x2[i]]
+    thisy = [0, y1[i], y2[i]]
+    line.set_data(thisx, thisy)
+    return line,
+
+# Create the animation
+ani = FuncAnimation(fig, animate, frames=len(t), interval=dt*1000, blit=True, init_func=init)
+
 plt.show()

@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1712138389 "c:/Users/yonis/Documents/Python Scripts/Physics Simulations/Physics Simulations.tex" "Physics Simulations.pdf" "Physics Simulations" 1712138391
+["pdflatex"] 1718633702 "c:/Users/yonis/Documents/Python Scripts/Physics Simulations/Physics-Simulations-1/Physics Simulations.tex" "Physics Simulations.pdf" "Physics Simulations" 1718633704
   "C:/Program Files (x86)/MiKTeX/fonts/tfm/public/cm/cmbx12.tfm" 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ""
   "C:/Program Files (x86)/MiKTeX/fonts/tfm/public/cm/cmmi12.tfm" 1136768653 1524 4414a8315f39513458b80dfc63bff03a ""
   "C:/Program Files (x86)/MiKTeX/fonts/tfm/public/cm/cmmi6.tfm" 1136768653 1512 f21f83efb36853c0b70002322c1ab3ad ""
@@ -12,6 +12,7 @@
   "C:/Program Files (x86)/MiKTeX/fonts/tfm/public/cm/cmsy6.tfm" 1136768653 1116 933a60c408fc0a863a92debe84b2d294 ""
   "C:/Program Files (x86)/MiKTeX/fonts/tfm/public/cm/cmsy8.tfm" 1136768653 1120 8b7d695260f3cff42e636090a8002094 ""
   "C:/Program Files (x86)/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1247596666 32080 340ef9bf63678554ee606688e7b5339d ""
+  "C:/Program Files (x86)/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb" 1247596667 30251 6afa5cb1d0204815a708a080681d4674 ""
   "C:/Program Files (x86)/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1247596667 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
   "C:/Program Files (x86)/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb" 1247596667 37912 07513ec114ac737ab54cea0152f4424b ""
   "C:/Program Files (x86)/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb" 1247596667 36281 c355509802a035cadc5f15869451dcee ""
@@ -32,9 +33,9 @@
   "C:/Program Files (x86)/MiKTeX/tex/latex/tools/array.sty" 1622550326 12689 a1a7b2795918756dcb9c9cbfacc4d9c7 ""
   "C:/Users/yonis/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1655113097 9735820 523e52472a2529d463778a7aeb559770 ""
   "C:/Users/yonis/AppData/Local/MiKTeX/pdftex/config/pdftex.map" 1648117867 86132 9054bee9622f45fb1912bdfba50b55c7 ""
-  "Physics Simulations.aux" 1712138391 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
-  "Physics Simulations.tex" 1712138386 2177 ed546d012abc89cc2f6f9c93ded92072 ""
-  "c:/Users/yonis/Documents/Python Scripts/Physics Simulations/Physics Simulations.tex" 1712138386 2177 ed546d012abc89cc2f6f9c93ded92072 ""
+  "Physics Simulations.aux" 1718633704 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "Physics Simulations.tex" 1718633701 3196 89c6d0e2d7bff54b3750363b2f1c7da6 ""
+  "c:/Users/yonis/Documents/Python Scripts/Physics Simulations/Physics-Simulations-1/Physics Simulations.tex" 1718633701 3196 89c6d0e2d7bff54b3750363b2f1c7da6 ""
   (generated)
   "Physics Simulations.aux"
   "Physics Simulations.log"
